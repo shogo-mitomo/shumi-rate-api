@@ -16,6 +16,12 @@ gem 'rack-json_schema'         # JSON Schema based Rack middlewares
 ### Setting ###
 gem 'config' # Easiest way to add multi-environment yaml settings
 
+### CLI ###
+gem 'thor'       # A toolkit for building powerful command-line interfaces
+gem 'formatador' # STDOUT text formatting
+gem 'whenever'   # Provides a clear syntax for writing and deploying cron jobs
+gem 'http'       # HTTP should be easy
+
 ### Monitoring ###
 gem 'komachi_heartbeat'      # Rails Application Heartbeat Check Engine
 gem 'newrelic_rpm'           # New Relic RPM Ruby Agent

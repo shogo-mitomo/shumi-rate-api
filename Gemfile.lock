@@ -42,6 +42,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     annotate (2.7.1)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
@@ -59,6 +61,7 @@ GEM
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
     choice (0.2.0)
+    chronic (0.10.2)
     chrono_logger (1.1.1)
     code_analyzer (0.4.7)
       sexp_processor
@@ -80,6 +83,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    domain_name (0.5.20161021)
+      unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
     erubis (2.7.0)
     exception_notification (4.2.1)
@@ -98,6 +103,7 @@ GEM
       path_expander (~> 1.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
+    formatador (0.2.5)
     fuubar (2.2.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -108,6 +114,15 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
+    http (2.1.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jdoc (0.4.2)
@@ -158,6 +173,7 @@ GEM
       coolline (~> 0.5)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    public_suffix (2.0.4)
     rack (2.0.1)
     rack-json_schema (1.5.2)
       erubis
@@ -266,6 +282,9 @@ GEM
     timecop (0.8.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     unicode-display_width (0.1.1)
     unicode_utils (1.4.0)
     unicorn (5.2.0)
@@ -283,6 +302,8 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    whenever (0.9.7)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -300,9 +321,11 @@ DEPENDENCIES
   factory_girl_rails
   fasterer
   flay
+  formatador
   fuubar
   hirb
   hirb-unicode
+  http
   jdoc
   komachi_heartbeat
   newrelic_rpm
@@ -326,9 +349,11 @@ DEPENDENCIES
   spring-commands-rspec
   spring-commands-rubocop
   terminal-notifier
+  thor
   timecop
   unicorn
   unicorn-worker-killer
+  whenever
 
 RUBY VERSION
    ruby 2.3.3p222

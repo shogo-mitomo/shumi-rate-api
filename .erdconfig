@@ -1,0 +1,7 @@
+attributes:
+  - foreign_keys
+  - primary_keys
+  - content
+filetype: png
+orientation: vertical
+sort: false

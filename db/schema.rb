@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126170318) do
+ActiveRecord::Schema.define(version: 20161126171038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20161126170318) do
     t.datetime "updated_at",     null: false
     t.index ["code"], name: "index_cities_on_code", unique: true, using: :btree
     t.index ["prefectures_id"], name: "index_cities_on_prefectures_id", using: :btree
+  end
+
+  create_table "counts", force: :cascade do |t|
+    t.string   "type",                   null: false
+    t.integer  "value",      default: 0, null: false
+    t.integer  "cities_id",              null: false
+    t.integer  "hobbies_id",             null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["cities_id"], name: "index_counts_on_cities_id", using: :btree
+    t.index ["hobbies_id"], name: "index_counts_on_hobbies_id", using: :btree
+    t.index ["type"], name: "index_counts_on_type", using: :btree
   end
 
   create_table "hobbies", force: :cascade do |t|
@@ -42,4 +54,6 @@ ActiveRecord::Schema.define(version: 20161126170318) do
   end
 
   add_foreign_key "cities", "prefectures", column: "prefectures_id"
+  add_foreign_key "counts", "cities", column: "cities_id"
+  add_foreign_key "counts", "hobbies", column: "hobbies_id"
 end

@@ -54,7 +54,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
-  config.logger = ::ChronoLogger.new("#{config.paths[:log][0]}.%Y%m%d")
+  config.logger = ::ChronoLogger.new("#{config.paths['log'][0]}.%Y%m%d")
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)

@@ -51,8 +51,8 @@ preload_app true
 # # fast LAN.
 # check_client_connection false
 
-# # local variable to guard against running a hook multiple times
-# run_once = true
+# local variable to guard against running a hook multiple times
+run_once = true
 
 before_fork do |_server, _worker|
   # the following is highly recomended for Rails + "preload_app true"

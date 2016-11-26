@@ -1,0 +1,9 @@
+proxy:
+  address: ''
+  port:    ''
+
+slack:
+  webhook_url: ''
+  channel:     ''
+  username:    ''
+  icon:        ''

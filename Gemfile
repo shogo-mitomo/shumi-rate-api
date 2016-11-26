@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.3'
+
 ### Application ###
 gem 'rails'                 # A full-stack web framework optimized for programmer happiness and sustainable productivity
 gem 'pg'                    # The Ruby interface to the PostgreSQL RDBMS

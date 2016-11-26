@@ -5,21 +5,21 @@
 #  id         :integer          not null, primary key
 #  type       :string           not null
 #  value      :integer          default(0), not null
-#  cities_id  :integer          not null
-#  hobbies_id :integer          not null
+#  city_id    :integer          not null
+#  hobby_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_counts_on_cities_id   (cities_id)
-#  index_counts_on_hobbies_id  (hobbies_id)
-#  index_counts_on_type        (type)
+#  index_counts_on_city_id   (city_id)
+#  index_counts_on_hobby_id  (hobby_id)
+#  index_counts_on_type      (type)
 #
 # Foreign Keys
 #
-#  fk_rails_976a7ef2fa  (cities_id => cities.id)
-#  fk_rails_c20bf40fc6  (hobbies_id => hobbies.id)
+#  fk_rails_976a7ef2fa  (city_id => cities.id)
+#  fk_rails_c20bf40fc6  (hobby_id => hobbies.id)
 #
 
 class Count < ApplicationRecord

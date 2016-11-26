@@ -21,6 +21,6 @@
 #
 
 class City < ApplicationRecord
-  belongs_to :prefectures
+  belongs_to :prefecture
   has_many :counts
 end

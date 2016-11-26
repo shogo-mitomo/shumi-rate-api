@@ -23,6 +23,6 @@
 #
 
 class Count < ApplicationRecord
-  belongs_to :cities
-  belongs_to :hobbies
+  belongs_to :city
+  belongs_to :hobby
 end

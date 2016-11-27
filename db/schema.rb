@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126175604) do
+ActiveRecord::Schema.define(version: 20161127022050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161126175604) do
     t.integer  "prefecture_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["code"], name: "index_cities_on_code", unique: true, using: :btree
+    t.index ["code", "prefecture_id"], name: "index_cities_on_code_and_prefecture_id", unique: true, using: :btree
     t.index ["prefecture_id"], name: "index_cities_on_prefecture_id", using: :btree
   end
 

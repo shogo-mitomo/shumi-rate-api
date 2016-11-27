@@ -18,6 +18,6 @@ class Prefecture < ApplicationRecord
 
   # FIXME
   def score
-    [*1..100].sample
+    cities.sum(&:score) / cities.size
   end
 end

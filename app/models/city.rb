@@ -29,6 +29,10 @@ class City < ApplicationRecord
 
   # FIXME
   def score
-    [*1..100].sample
+    if (value = counts.sum(&:value)).zero?
+      [*1..60].sample
+    else
+      (Math.log10(value) * 10).to_i
+    end
   end
 end

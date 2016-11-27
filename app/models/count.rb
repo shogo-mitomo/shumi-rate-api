@@ -25,4 +25,9 @@
 class Count < ApplicationRecord
   belongs_to :city
   belongs_to :hobby
+
+  # FIXME
+  def score
+    [*1..100].sample
+  end
 end

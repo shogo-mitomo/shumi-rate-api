@@ -1,4 +1,5 @@
 class CitySerializer < ActiveModel::Serializer
   attributes :id, :code, :name, :score
-  # FIXME: has_many :shops, :spots
+  has_many :shops, serializer: ::ShopSerializer
+  has_many :spots, serializer: ::SpotSerializer
 end

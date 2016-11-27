@@ -15,4 +15,9 @@
 
 class Prefecture < ApplicationRecord
   has_many :cities, dependent: :destroy
+
+  # FIXME
+  def score
+    [*1..100].sample
+  end
 end

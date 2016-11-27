@@ -23,4 +23,9 @@
 class City < ApplicationRecord
   belongs_to :prefecture
   has_many :counts
+
+  # FIXME
+  def score
+    [*1..100].sample
+  end
 end

@@ -5,6 +5,7 @@
 # hobby_prefectures GET  /hobbies/:hobby_id/prefectures(.:format)     prefectures#index
 #  hobby_prefecture GET  /hobbies/:hobby_id/prefectures/:id(.:format) prefectures#show
 #        hobby_city GET  /hobbies/:hobby_id/cities/:id(.:format)      cities#show
+#           hobbies GET  /hobbies(.:format)                           hobbies#index
 #
 # Routes for KomachiHeartbeat::Engine:
 #    heartbeat GET  /heartbeat(.:format)    komachi_heartbeat/heartbeat#index {:format=>"txt"}

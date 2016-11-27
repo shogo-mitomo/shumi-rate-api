@@ -9,6 +9,7 @@
 #  prefecture_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  population    :integer          default(0), not null
 #
 # Indexes
 #

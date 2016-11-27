@@ -9,7 +9,8 @@ class Seed < Thor
       pref_code = prefecture['prefCode']
       pref_name = prefecture['prefName']
 
-      pref = ::Prefecture.find_or_initialize_by(code: pref_code, name: pref_name)
+      pref = ::Prefecture.find_or_initialize_by(code: pref_code,
+                                                name: pref_name)
 
       response = get(:cities, prefCode: pref_code)
       cities   = Oj.load(response.body.to_s)['result']
@@ -24,6 +25,18 @@ class Seed < Thor
       end
 
       pref.save!
+    end
+  end
+
+  desc 'populations', 'Generates master populations data'
+  def populations
+    ::City.all.find_each do |city|
+      params   = { prefCode: city.prefecture.code,
+                   cityCode: city.code }
+      response = get('population/composition/perYear', params)
+      populations = Oj.load(response.body.to_s)['result']
+      population  = populations&.dig('data', 0, 'data', 7, 'value').to_i
+      city.update!(population: population)
     end
   end
 

@@ -2,13 +2,11 @@
 #
 # Table name: counts
 #
-#  id         :integer          not null, primary key
-#  type       :string           not null
-#  value      :integer          default(0), not null
-#  city_id    :integer          not null
-#  hobby_id   :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id       :integer          not null, primary key
+#  type     :string           not null
+#  value    :integer          default(0), not null
+#  city_id  :integer          not null
+#  hobby_id :integer          not null
 #
 # Indexes
 #

@@ -12,8 +12,8 @@
 #
 # Indexes
 #
-#  index_cities_on_code_and_prefecture_id  (code,prefecture_id) UNIQUE
-#  index_cities_on_prefecture_id           (prefecture_id)
+#  index_cities_on_code           (code) UNIQUE
+#  index_cities_on_prefecture_id  (prefecture_id)
 #
 # Foreign Keys
 #

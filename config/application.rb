@@ -38,5 +38,13 @@ module ShumiRateApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    ### Rack::Cors ###
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'mlspinylobster.github.io'
+        resource '*', headers: :any, methods: %i(get post options)
+      end
+    end
   end
 end

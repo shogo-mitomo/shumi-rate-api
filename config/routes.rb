@@ -15,7 +15,7 @@
 Rails.application.routes.draw do
   mount KomachiHeartbeat::Engine => '/healthcheck'
 
-  resources :hobbies, only: [] do
+  resources :hobbies, only: %i(index) do
     resources :prefectures, only: %i(index show)
     resources :cities,      only: %i(show)
   end

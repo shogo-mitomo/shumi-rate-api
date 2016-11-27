@@ -1,3 +1,3 @@
 class ShopSerializer < ActiveModel::Serializer
-  attributes :id, :score
+  attributes :id, :score, :items
 end

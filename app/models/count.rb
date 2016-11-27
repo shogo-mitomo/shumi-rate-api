@@ -30,4 +30,14 @@ class Count < ApplicationRecord
   def score
     [*1..100].sample
   end
+
+  # FIXME
+  def items
+    url      = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
+    query    = [hobby.name, city.name].join('+')
+    params   = { key: ENV['GOOGLE_API_KEY'], query: query }
+    response = HTTP.get(url, params: params)
+    Oj.load(response.body.to_s)['results']
+      .map { |result| result.slice('formatted_address', 'name') }
+  end
 end

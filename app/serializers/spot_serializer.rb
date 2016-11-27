@@ -1,3 +1,3 @@
 class SpotSerializer < ActiveModel::Serializer
-  attributes :id, :score
+  attributes :id, :score, :items
 end

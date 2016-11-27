@@ -23,8 +23,8 @@
 class City < ApplicationRecord
   belongs_to :prefecture
   has_many :counts
-  has_many :shops
-  has_many :spots
+  has_one :shop
+  has_one :spot
 
   # FIXME
   def score

@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   resources :hobbies, only: %i(index) do
     resources :prefectures, only: %i(index show)
-    resources :cities,      only: %i(show)
+    resources :cities,      only: %i(index show)
   end
 end

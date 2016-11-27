@@ -11,7 +11,7 @@ class Seed < Thor
 
       pref = ::Prefecture.find_or_initialize_by(code: pref_code, name: pref_name)
 
-      response = get(:cities)
+      response = get(:cities, prefCode: pref_code)
       cities   = Oj.load(response.body.to_s)['result']
       cities.each do |city|
         city_code = city['cityCode']

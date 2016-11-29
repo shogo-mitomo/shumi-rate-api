@@ -84,17 +84,3 @@ production:
   username: shumi-rate-api
   password: <%= ENV['SHUMI-RATE-API_DATABASE_PASSWORD'] %>
   host:     <%= ENV['SHUMI-RATE-API_DATABASE_HOST'] %>
-
-edge:
-  <<: *default
-  database: shumi-rate-api_edge
-  username: shumi-rate-api
-  password: <%= ENV['SHUMI-RATE-API_DATABASE_PASSWORD'] %>
-  host:     <%= ENV['SHUMI-RATE-API_DATABASE_HOST'] %>
-
-staging:
-  <<: *default
-  database: shumi-rate-api_staging
-  username: shumi-rate-api
-  password: <%= ENV['SHUMI-RATE-API_DATABASE_PASSWORD'] %>
-  host:     <%= ENV['SHUMI-RATE-API_DATABASE_HOST'] %>

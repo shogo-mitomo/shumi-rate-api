@@ -1,6 +1,7 @@
 require './config/environment'
 
 class Seed < Thor
+  # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/prefectures.html
   desc 'prefectures', 'Generates master prefectures data'
   def prefectures
     response    = get(:prefectures)
@@ -13,6 +14,7 @@ class Seed < Thor
     end
   end
 
+  # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/cities.html
   desc 'cities', 'Generates master cities data'
   def cities
     ::Prefecture.all.find_each do |pref|
@@ -28,6 +30,7 @@ class Seed < Thor
     end
   end
 
+  # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/population/composition/perYear.html
   desc 'populations', 'Generates master populations data'
   def populations
     ::City.all.find_each do |city|

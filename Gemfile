@@ -9,10 +9,10 @@ gem 'unicorn'               # Rack HTTP server for fast clients and Unix
 gem 'unicorn-worker-killer' # Automatically restart Unicorn workers
 
 ### API ###
-gem 'active_model_serializers'        # ActiveModel::Serializer implementation and Rails hooks
-gem 'oj'                              # A fast JSON parser and Object marshaller as a Ruby gem
-gem 'rack-json_schema'                # JSON Schema based Rack middlewares
-gem 'rack-cors', require: 'rack/cors' # Middleware for enabling Cross-Origin Resource Sharing in Rack apps
+gem 'active_model_serializers' # ActiveModel::Serializer implementation and Rails hooks
+gem 'oj'                       # A fast JSON parser and Object marshaller as a Ruby gem
+gem 'rack-json_schema'         # JSON Schema based Rack middlewares
+gem 'rack-cors'                # Middleware for enabling Cross-Origin Resource Sharing in Rack apps
 
 ### Setting ###
 gem 'config' # Easiest way to add multi-environment yaml settings

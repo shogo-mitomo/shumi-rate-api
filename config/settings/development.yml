@@ -1,3 +1,5 @@
+domain: 'localhost:3000'
+
 proxy:
   address: ''
   port:    ''

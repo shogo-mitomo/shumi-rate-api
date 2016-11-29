@@ -4,7 +4,6 @@
 # komachi_heartbeat      /healthcheck                                 KomachiHeartbeat::Engine
 # hobby_prefectures GET  /hobbies/:hobby_id/prefectures(.:format)     prefectures#index
 #  hobby_prefecture GET  /hobbies/:hobby_id/prefectures/:id(.:format) prefectures#show
-#      hobby_cities GET  /hobbies/:hobby_id/cities(.:format)          cities#index
 #        hobby_city GET  /hobbies/:hobby_id/cities/:id(.:format)      cities#show
 #           hobbies GET  /hobbies(.:format)                           hobbies#index
 #

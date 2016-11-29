@@ -13,5 +13,5 @@
 #
 
 class Hobby < ApplicationRecord
-  has_many :counts
+  has_many :counts, dependent: :destroy
 end

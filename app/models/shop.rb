@@ -21,4 +21,6 @@
 #
 
 class Shop < Count
+  belongs_to :city
+  belongs_to :hobby
 end

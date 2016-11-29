@@ -23,9 +23,9 @@
 
 class City < ApplicationRecord
   belongs_to :prefecture
-  has_many :counts
-  has_one :shop
-  has_one :spot
+  has_many :counts, dependent: :destroy
+  has_one :shop, dependent: :destroy
+  has_one :spot, dependent: :destroy
 
   # FIXME
   def score

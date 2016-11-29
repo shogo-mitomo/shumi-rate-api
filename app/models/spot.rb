@@ -21,4 +21,6 @@
 #
 
 class Spot < Count
+  belongs_to :city
+  belongs_to :hobby
 end

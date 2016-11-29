@@ -17,7 +17,7 @@ class Seed < Thor
   # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/cities.html
   desc 'cities', 'Generates master cities data'
   def cities
-    ::Prefecture.all.find_each do |pref|
+    ::Prefecture.find_each do |pref|
       response = get(:cities, prefCode: pref.code)
       cities   = Oj.load(response.body.to_s)['result']
       cities.each do |city|
@@ -33,7 +33,7 @@ class Seed < Thor
   # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/population/composition/perYear.html
   desc 'populations', 'Generates master populations data'
   def populations
-    ::City.all.find_each do |city|
+    ::City.includes(:prefecture).find_each do |city|
       params      = { prefCode: city.prefecture.code,
                       cityCode: city.code }
       response    = get('population/composition/perYear', params)

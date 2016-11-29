@@ -1,29 +1,29 @@
 require './config/environment'
 
 class Seed < Thor
-  desc 'cities', 'Generates master cities data'
-  def cities
+  desc 'prefectures', 'Generates master prefectures data'
+  def prefectures
     response    = get(:prefectures)
     prefectures = Oj.load(response.body.to_s)['result']
     prefectures.each do |prefecture|
-      pref_code = prefecture['prefCode']
-      pref_name = prefecture['prefName']
+      code = prefecture['prefCode']
+      name = prefecture['prefName']
+      pref = ::Prefecture.find_or_initialize_by(code: code, name: name)
+      pref.save!
+    end
+  end
 
-      pref = ::Prefecture.find_or_initialize_by(code: pref_code,
-                                                name: pref_name)
-
-      response = get(:cities, prefCode: pref_code)
+  desc 'cities', 'Generates master cities data'
+  def cities
+    ::Prefecture.all.find_each do |pref|
+      response = get(:cities, prefCode: pref.code)
       cities   = Oj.load(response.body.to_s)['result']
       cities.each do |city|
-        city_code = city['cityCode']
-        city_name = city['cityName']
-        city_flag = city['bigCityFlag']
-
-        pref.cities.build(code:          city_code,
-                          name:          city_name,
-                          big_city_flag: city_flag)
+        code = city['cityCode']
+        name = city['cityName']
+        flag = city['bigCityFlag']
+        pref.cities.build(code: code, name: name, big_city_flag: flag)
       end
-
       pref.save!
     end
   end
@@ -31,9 +31,9 @@ class Seed < Thor
   desc 'populations', 'Generates master populations data'
   def populations
     ::City.all.find_each do |city|
-      params   = { prefCode: city.prefecture.code,
-                   cityCode: city.code }
-      response = get('population/composition/perYear', params)
+      params      = { prefCode: city.prefecture.code,
+                      cityCode: city.code }
+      response    = get('population/composition/perYear', params)
       populations = Oj.load(response.body.to_s)['result']
       population  = populations&.dig('data', 0, 'data', 7, 'value').to_i
       city.update!(population: population)

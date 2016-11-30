@@ -5,11 +5,11 @@
 #  id            :integer          not null, primary key
 #  code          :string           not null
 #  name          :string           not null
+#  population    :integer          default(0), not null
 #  big_city_flag :integer          not null
 #  prefecture_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  population    :integer          default(0), not null
 #
 # Indexes
 #
@@ -18,7 +18,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_584d859bfb  (prefecture_id => prefectures.id)
+#  fk_rails_cc74ecd368  (prefecture_id => prefectures.id)
 #
 
 class CitySerializer < ActiveModel::Serializer

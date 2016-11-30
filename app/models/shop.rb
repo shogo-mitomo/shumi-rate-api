@@ -18,8 +18,8 @@
 #
 # Foreign Keys
 #
-#  fk_rails_976a7ef2fa  (city_id => cities.id)
-#  fk_rails_c20bf40fc6  (hobby_id => hobbies.id)
+#  fk_rails_48d7365507  (city_id => cities.id)
+#  fk_rails_724d681eb2  (hobby_id => hobbies.id)
 #
 
 class Shop < Count

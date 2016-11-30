@@ -4,8 +4,7 @@ class Seed < Thor
   # https://opendata.resas-portal.go.jp/docs/api/v1-rc.1/prefectures.html
   desc 'prefectures', 'Generates master prefectures data'
   def prefectures
-    response    = get(:prefectures)
-    prefectures = Oj.load(response.body.to_s)['result']
+    prefectures = get(:prefectures)
     prefectures.each do |prefecture|
       code = prefecture['prefCode']
       name = prefecture['prefName']
@@ -18,8 +17,7 @@ class Seed < Thor
   desc 'cities', 'Generates master cities data'
   def cities
     ::Prefecture.find_each do |pref|
-      response = get(:cities, prefCode: pref.code)
-      cities   = Oj.load(response.body.to_s)['result']
+      cities = get(:cities, prefCode: pref.code)
       cities.each do |city|
         code = city['cityCode']
         name = city['cityName']
@@ -36,8 +34,7 @@ class Seed < Thor
     ::City.includes(:prefecture).find_each do |city|
       params      = { prefCode: city.prefecture.code,
                       cityCode: city.code }
-      response    = get('population/composition/perYear', params)
-      populations = Oj.load(response.body.to_s)['result']
+      populations = get('population/composition/perYear', params)
       population  = populations&.dig('data', 0, 'data', 7, 'value').to_i
       city.update!(population: population)
     end
@@ -47,7 +44,8 @@ class Seed < Thor
 
   def get(url, params = {})
     url = "https://opendata.resas-portal.go.jp/api/v1-rc.1/#{url}"
-    HTTP.headers('X-API-KEY': ENV['RESAS_API_KEY'])
-        .get(url, params: params)
+    res = HTTP.headers('X-API-KEY': ENV['RESAS_API_KEY'])
+              .get(url, params: params)
+    Oj.load(res.body.to_s)['result']
   end
 end

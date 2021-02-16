@@ -222,7 +222,7 @@ GEM
     rainbow (2.1.0)
     raindrops (0.17.0)
     rake (11.3.0)
-    redcarpet (3.3.4)
+    redcarpet (3.5.1)
     redis (3.3.2)
     reek (4.5.2)
       codeclimate-engine-rb (~> 0.4.0)
